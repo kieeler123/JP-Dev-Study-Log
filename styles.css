@@ -1,0 +1,363 @@
+/* ===== 기본 리셋에 가까운 심플 세팅 ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  background-color: #f5f5f5;
+  color: #111827;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== 공통 레이아웃 ===== */
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ===== 헤더 ===== */
+
+.site-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.nav-link.is-active {
+  border-color: #111827;
+  background-color: #111827;
+  color: #ffffff;
+}
+
+/* 모바일에서 네비게이션 줄바꿈 */
+@media (max-width: 480px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .nav {
+    width: 100%;
+  }
+}
+
+/* ===== 푸터 ===== */
+
+.site-footer {
+  padding: 24px 0;
+  margin-top: 40px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.8rem;
+  color: #6b7280;
+  background-color: #fafafa;
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+/* ===== 메인(홈) ===== */
+
+.hero {
+  padding: 32px 0 24px;
+}
+
+.hero-title {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.hero-text {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 24px 0 40px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===== 카드 ===== */
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 16px 20px;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.04);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.card-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+/* ===== 페이지 헤더 (study.html) ===== */
+
+.page-header {
+  padding: 24px 0 16px;
+}
+
+.page-title {
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+}
+
+.page-text {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* ===== 폼 ===== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+.form-input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  outline: none;
+  background-color: #f9fafb;
+}
+
+.form-input:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.12);
+  background-color: #ffffff;
+}
+
+/* 모바일에서 검색창 전체폭 */
+.full-width-mobile {
+  width: 100%;
+}
+
+.small-input {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+
+/* ===== 버튼 ===== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.86rem;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, transform 0.05s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.primary-btn {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+.primary-btn:hover {
+  background-color: #020617;
+}
+
+/* 로그 내 작은 버튼 */
+.small-btn {
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #374151;
+}
+
+.small-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.danger-btn {
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+.danger-btn:hover {
+  background-color: #fef2f2;
+}
+
+/* ===== 로그 리스트 ===== */
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+}
+
+.search-row {
+  margin-bottom: 8px;
+}
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.log-item {
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  background-color: #f9fafb;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.log-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background-color: #e5e7eb;
+}
+
+.log-date {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+.log-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.log-content {
+  font-size: 0.85rem;
+  color: #374151;
+  white-space: pre-line;
+}
+
+/* 로그 액션(편집/삭제 버튼 영역) */
+.log-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.log-empty {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* ===== 접근성용 숨김 텍스트 ===== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}

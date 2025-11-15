@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>学習ログ | JP & Dev Study Log</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <h1 class="logo">JP & Dev Study Log</h1>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">ホーム</a>
+          <a href="study.html" class="nav-link is-active">学習ログ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-header">
+        <h2 class="page-title">学習ログ</h2>
+        <p class="page-text">
+          日本語とコーディングの学習記録をまとめています。
+          入力した内容はブラウザの <code>localStorage</code> に保存されます。
+        </p>
+        <p class="page-text">
+          基本的な <strong>CRUD（追加・閲覧・編集・削除）</strong> と
+          フィルター・検索機能をすべてバニラ JavaScript で実装しています。
+        </p>
+      </section>
+
+      <!-- 입력 폼 -->
+      <section class="card">
+        <h3 class="card-title">新しいログを追加</h3>
+        <form id="log-form" class="form">
+          <div class="form-row">
+            <label for="category" class="form-label">カテゴリ</label>
+            <select id="category" class="form-input">
+              <option value="japanese">日本語</option>
+              <option value="coding">コーディング</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="title" class="form-label">タイトル</label>
+            <input
+              id="title"
+              type="text"
+              class="form-input"
+              placeholder="例: N2文法「〜わけではない」 / Array.prototype.map の使い方"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="content" class="form-label">内容</label>
+            <textarea
+              id="content"
+              class="form-input"
+              rows="4"
+              placeholder="学んだ内容・例文・エラーの原因などを自由にメモ..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn primary-btn">保存する</button>
+        </form>
+      </section>
+
+      <!-- 필터 + 검색 + 리스트 -->
+      <section class="card">
+        <div class="card-header-row">
+          <h3 class="card-title">ログ一覧</h3>
+          <div class="filter-row">
+            <label for="filter" class="form-label sr-only">フィルター</label>
+            <select id="filter" class="form-input small-input">
+              <option value="all">すべて</option>
+              <option value="japanese">日本語だけ</option>
+              <option value="coding">コーディングだけ</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="search-row">
+          <label for="search" class="form-label sr-only">検索</label>
+          <input
+            id="search"
+            type="text"
+            class="form-input small-input full-width-mobile"
+            placeholder="タイトル・内容で検索..."
+          />
+        </div>
+
+        <div id="log-list" class="log-list">
+          <!-- JS로 아이템이 추가됩니다 -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <small>&copy; 2025 JP & Dev Study Log</small>
+      </div>
+    </footer>
+
+    <script src="study.js"></script>
+  </body>
+</html>
