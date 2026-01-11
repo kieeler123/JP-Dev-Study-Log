@@ -311,6 +311,10 @@ a {
   margin-bottom: 4px;
 }
 
+.log-header > div {
+  min-width: 0; /* flex 자식이 내용 때문에 overflow나는 것 방지 */
+}
+
 .log-badge {
   display: inline-block;
   padding: 2px 8px;
@@ -334,6 +338,8 @@ a {
   font-size: 0.85rem;
   color: #374151;
   white-space: pre-line;
+  overflow-wrap: anywhere; /* 긴 단어/URL도 강제로 줄바꿈 */
+  word-break: break-word; /* 구형 브라우저 보강 */
 }
 
 /* 로그 액션(편집/삭제 버튼 영역) */

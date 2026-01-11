@@ -233,3 +233,23 @@ searchInput.addEventListener("input", () => {
 document.addEventListener("DOMContentLoaded", () => {
   renderLogs();
 });
+
+function exportLogsToFile() {
+  const raw = localStorage.getItem(STORAGE_KEY) || "[]";
+  const blob = new Blob([raw], { type: "application/json" });
+
+  const a = document.createElement("a");
+  const date = new Date();
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+
+  a.href = URL.createObjectURL(blob);
+  a.download = `studyLogs-${y}${m}${d}.json`;
+  a.click();
+
+  URL.revokeObjectURL(a.href);
+}
+document
+  .getElementById("export-btn")
+  .addEventListener("click", exportLogsToFile);
